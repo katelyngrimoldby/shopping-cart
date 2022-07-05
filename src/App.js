@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Card from './components/Card';
+import Cart from './components/Cart';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -21,9 +22,12 @@ function App() {
 
   return (
     <>
-      {products.map((e, i) => {
-        return <Card key={i} product={e} submit={onSubmit} />;
-      })}
+      <Cart content={cart} />
+      <div>
+        {products.map((e, i) => {
+          return <Card key={i} product={e} submit={onSubmit} />;
+        })}
+      </div>
     </>
   );
 }
