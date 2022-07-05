@@ -20,9 +20,13 @@ function App() {
     }
   };
 
+  const removeFromCart = (data) => {
+    setCart(cart.filter((e) => e.product !== data.product));
+  };
+
   return (
     <>
-      <Cart content={cart} />
+      <Cart content={cart} callback={removeFromCart} />
       <div>
         {products.map((e, i) => {
           return <Card key={i} product={e} submit={onSubmit} />;
